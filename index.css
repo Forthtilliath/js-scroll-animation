@@ -25,6 +25,9 @@ body {
   flex-grow: 1;
   background-color: #000;
 }
+.glass-container .glass {
+  font-size: 0;
+}
 .view {
   position: relative;
   overflow: hidden;

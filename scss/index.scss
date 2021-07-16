@@ -33,10 +33,11 @@ body {
     display: flex;
     flex-direction: column;
     .glass-bg {
-    flex-grow: 1;
-    background-color: #000;
+        flex-grow: 1;
+        background-color: #000;
     }
     .glass {
+        font-size: 0;
         .sun_cover {
         }
     }
