@@ -25,9 +25,6 @@ body {
   flex-grow: 1;
   background-color: #000;
 }
-.glass-container .glass svg {
-  color: green;
-}
 .view {
   position: relative;
   overflow: hidden;
