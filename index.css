@@ -12,24 +12,22 @@ body {
   scroll-behavior: smooth;
 }
 
-.glass {
+.glass-container {
+  width: 100vw;
+  height: 100vh;
   background-color: transparent;
   position: fixed;
-  width: 100vw;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
 }
-.glass svg {
+.glass-container .glass-bg {
+  flex-grow: 1;
+  background-color: #000;
+}
+.glass-container .glass svg {
   color: green;
 }
-.glass .sun_cover {
-  z-index: 2;
-}
-.glass .test {
-  width: 100px;
-  height: 100px;
-  background-color: #357755;
-}
-
 .view {
   position: relative;
   overflow: hidden;
