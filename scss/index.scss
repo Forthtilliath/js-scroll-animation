@@ -1,0 +1,72 @@
+$nbViewsLoaded: 3;
+
+*,
+:before,
+:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // overflow: hidden;
+}
+
+html,
+body {
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+
+// .view {
+//     width: calc(100vh + 100vh * 2 * #{$nbViewsLoaded});
+//     height: 100vh;
+//     margin-left: calc(-100vh * #{$nbViewsLoaded});
+//     // background: rgb(2, 0, 36);
+//     // background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(23, 255, 55, 1) 50%);
+//     background: left/contain no-repeat
+//         url(https://sp-images.summitpost.org/696383.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=5f23fe7f86b5fd900e4adadd21f9e4e4);
+// }
+.glass {
+    background-color: transparent;
+    position: fixed;
+    width: 100vw;
+    z-index: 2;
+
+    svg {
+        color:green;
+    }
+
+    .sun_cover {
+        z-index: 2;
+    }
+    .test {
+        width: 100px;
+        height: 100px;
+        background-color: #357755;
+    }
+}
+
+.view {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    .image {
+        background: 0px 0px / cover repeat
+            url(https://sp-images.summitpost.org/696383.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=5f23fe7f86b5fd900e4adadd21f9e4e4);
+        // background: left/contain no-repeat url(https://sp-images.summitpost.org/696383.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=5f23fe7f86b5fd900e4adadd21f9e4e4);
+        // background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(23, 255, 55, 1) 50%);
+        // position: absolute;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 300%;
+        animation: slideshow 10s linear infinite;
+    }
+    @keyframes slideshow {
+        0% {
+            left: 0;
+        }
+        100% {
+            left: -200%;
+        }
+    }
+}

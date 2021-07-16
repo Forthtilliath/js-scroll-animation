@@ -1,0 +1,55 @@
+*,
+:before,
+:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.glass {
+  background-color: transparent;
+  position: fixed;
+  width: 100vw;
+  z-index: 2;
+}
+.glass svg {
+  color: green;
+}
+.glass .sun_cover {
+  z-index: 2;
+}
+.glass .test {
+  width: 100px;
+  height: 100px;
+  background-color: #357755;
+}
+
+.view {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.view .image {
+  background: 0px 0px/cover repeat url(https://sp-images.summitpost.org/696383.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=5f23fe7f86b5fd900e4adadd21f9e4e4);
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 300%;
+  animation: slideshow 10s linear infinite;
+}
+@keyframes slideshow {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -200%;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
