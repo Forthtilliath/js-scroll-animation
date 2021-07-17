@@ -1,4 +1,5 @@
 $nbViewsLoaded: 3;
+$color-contour: hsl(0, 0%, 0%);
 
 *,
 :before,
@@ -35,7 +36,7 @@ body {
 
     .glass-bg {
         flex-grow: 1;
-        background-color: #000;
+        background-color: $color-contour;
     }
     .glass-subcontainer {
         display: flex;

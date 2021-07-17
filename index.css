@@ -23,7 +23,7 @@ body {
 }
 .glass-container .glass-bg {
   flex-grow: 1;
-  background-color: #000;
+  background-color: black;
 }
 .glass-container .glass-subcontainer {
   display: flex;

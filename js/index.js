@@ -1,15 +1,11 @@
+import Cursor from './cursor.js';
+import { wait } from './utils.js';
+
+const unCurseur = new Cursor({element:document.querySelector('glass')});
+
 let img = document.querySelector('.view .image');
-let lastScroll = 0;
 
 // https://greensock.com/forums/topic/27086-horizontal-image-slider-for-panorama-image-and-multiple-images/
-
-const wait = (fn) => {
-    const time = +new Date();
-    if (time > lastScroll + 500) {
-        fn();
-        lastScroll = time;
-    }
-};
 
 window.addEventListener(
     'wheel',
