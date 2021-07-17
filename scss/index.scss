@@ -1,5 +1,5 @@
 $nbViewsLoaded: 3;
-$color-contour: hsl(0, 0%, 0%);
+$color-contour: rgb(0, 0, 0);
 $color-contour: transparent; // TODO Remove later
 
 *,
@@ -32,7 +32,7 @@ body {
     height: 100vh;
     background-color: transparent;
     position: fixed;
-    z-index: 2;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     animation: all 1s ease-in;
@@ -65,10 +65,83 @@ body {
     width: 100%;
 
     .tree {
+        z-index: 2;
+        position: absolute;
+        bottom: 100vh;
+
         img {
-            background-color: transparent;
+            z-index: inherit;
+            // background-color: transparent;
+            // width: 20vw;
+            height: 50vh;
+        }
+    }
+
+    .hills {
+        height: 100vh;
+        width: 100vw;
+        top: 10vh;
+        position: absolute;
+        z-index: 3;
+        background: repeat-x url(../images/hill/1.png);
+        background-size: 125%;
+        background-position-x: 0;
+    }
+
+    .cloud {
+        z-index: 1;
+        height: 70vh;
+
+        #viewport {
+            z-index: inherit;
             position: absolute;
-            width: 40vw;
+            overflow: hidden;
+            width: 100%;
+            height: inherit;
+            perspective: 1000px;
+            background-image: linear-gradient(bottom, rgb(69, 132, 181) 28%, rgb(31, 72, 122) 64%);
+            background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0.28, rgb(69, 132, 180)),
+                color-stop(0.64, rgb(31, 71, 120))
+            );
+        }
+
+        #world {
+            z-index: inherit;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            transform-style: preserve-3d;
+            // background: rgba( 255, 0, 0, .2 );
+            div {
+                transform-style: preserve-3d;
+            }
+        }
+
+        .cloudBase {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            // top: 256px;
+            // left: 256px;
+            margin-top: -10px;
+            margin-left: -10px;
+            // background: rgba( 255, 0, 255, .5 );
+        }
+
+        .cloudLayer {
+            position: absolute;
+            height: 256px;
+            width: 256px;
+            // top: 50%;
+            // left: 50%;
+            margin-top: -128px;
+            margin-left: -128px;
+            // background: rgba( 0, 255, 255, .1 );
+            transition: opacity 0.5s ease-out;
         }
     }
 

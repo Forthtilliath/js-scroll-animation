@@ -1,12 +1,14 @@
 // import Cursor from './cursor.js';
 import Scroll from './scroll.js';
+import Cloud from './components/cloud.js';
 // import { wait } from './utils.js';
 
 // TODO Si y'a le temps
 // const unCurseur = new Cursor({element:document.querySelector('glass')});
 const scroll = new Scroll();
+const cloud = new Cloud();
 
-let img = document.querySelector('.view .image');
+// let img = document.querySelector('.view .image');
 
 // https://greensock.com/forums/topic/27086-horizontal-image-slider-for-panorama-image-and-multiple-images/
 

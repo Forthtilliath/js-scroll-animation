@@ -1,4 +1,4 @@
-const trees = ['/images/tree/0.png','/images/tree/1.png', '/images/tree/2.png', ];
+const trees = [...Array(5).keys()].map((x) => `/images/tree/${x}.png`);
 
 /**
  * Nouvel arbre =>
@@ -11,7 +11,7 @@ export default class Tree {
     constructor(index = -1) {
         // Affecte l'arbre choisit sinon en choisit un aléatoirement
         this.url = trees[index > 0 && index < trees.length ? index : Math.floor(Math.random() * trees.length)];
-        
+
         this.initialX = 0;
         this.initialY = 0;
 
@@ -24,6 +24,5 @@ export default class Tree {
         let img = document.createElement('img');
         img.src = this.url;
         this.container.appendChild(img);
-
     }
 }

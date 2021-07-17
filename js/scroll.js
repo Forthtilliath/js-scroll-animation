@@ -1,4 +1,4 @@
-import Tree from './components/tree.js'
+import Tree from './components/tree.js';
 
 export default class Scroll {
     constructor() {
