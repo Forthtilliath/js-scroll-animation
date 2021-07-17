@@ -71,9 +71,9 @@ body {
         background: no-repeat url(../images/sun.png);
         left: 10%;
         top: 20%;
-        background-size: 100px;
-        width: 100px;
-        height: 100px;
+        background-size: 5vh;
+        width: 5vh;
+        height: 5vh;
     }
 
     .tree {
@@ -92,7 +92,7 @@ body {
     .hills {
         height: 100vh;
         width: 100vw;
-        top: 10vh;
+        top: 55vh;
         position: absolute;
         z-index: 3;
         background: repeat-x url(../images/hill/1.png);

@@ -34,7 +34,7 @@ export default class Cloud {
         let div = document.createElement('div');
         div.className = 'cloudBase';
         const rect = this.world.getBoundingClientRect();
-        console.log(rect);
+        // console.log(rect);
         let random_x = Math.random() * rect.width;
         let random_y = Math.random() * rect.height;
         let random_z = 256 - Math.random() * 50;
