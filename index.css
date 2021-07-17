@@ -9,7 +9,7 @@
 html,
 body {
   height: 100vh;
-  scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 .glass-container {
@@ -20,10 +20,12 @@ body {
   z-index: 2;
   display: flex;
   flex-direction: column;
+  animation: all 1s ease-in;
 }
 .glass-container .glass-bg {
   flex-grow: 1;
-  background-color: black;
+  background-color: transparent;
+  animation: all 1s ease-in;
 }
 .glass-container .glass-subcontainer {
   display: flex;
@@ -31,11 +33,17 @@ body {
 .glass-container .glass-subcontainer .glass {
   font-size: 0;
   width: 80%;
+  animation: all 1s ease-in;
 }
 .view {
   position: relative;
   overflow: hidden;
   width: 100%;
+}
+.view .tree img {
+  background-color: transparent;
+  position: absolute;
+  width: 40vw;
 }
 .view .image {
   background: 0px 0px/cover repeat url(https://sp-images.summitpost.org/696383.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=5f23fe7f86b5fd900e4adadd21f9e4e4);
