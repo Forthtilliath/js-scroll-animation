@@ -63,11 +63,23 @@ body {
     position: relative;
     overflow: hidden;
     width: 100%;
+    height: 100vh;
+
+    .sun {
+        z-index: 1;
+        position: absolute;
+        background: no-repeat url(../images/sun.png);
+        left: 10%;
+        top: 20%;
+        background-size: 100px;
+        width: 100px;
+        height: 100px;
+    }
 
     .tree {
         z-index: 2;
         position: absolute;
-        bottom: 100vh;
+        bottom: 30vh;
 
         img {
             z-index: inherit;
@@ -142,27 +154,6 @@ body {
             margin-left: -128px;
             // background: rgba( 0, 255, 255, .1 );
             transition: opacity 0.5s ease-out;
-        }
-    }
-
-    .image {
-        background: 0px 0px / cover repeat
-            url(https://sp-images.summitpost.org/696383.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=5f23fe7f86b5fd900e4adadd21f9e4e4);
-        // background: left/contain no-repeat url(https://sp-images.summitpost.org/696383.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=5f23fe7f86b5fd900e4adadd21f9e4e4);
-        // background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(23, 255, 55, 1) 50%);
-        // position: absolute;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        width: 300%;
-        animation: slideshow 10s linear infinite;
-    }
-    @keyframes slideshow {
-        0% {
-            left: 0;
-        }
-        100% {
-            left: -200%;
         }
     }
 }
