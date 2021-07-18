@@ -1,4 +1,3 @@
-$nbViewsLoaded: 3;
 $color-contour: rgb(0, 0, 0);
 
 *,
@@ -43,6 +42,14 @@ body {
     overflow: hidden;
     width: 100%;
     height: 100vh;
+    background-image: linear-gradient(bottom, rgb(69, 132, 181) 28%, rgb(31, 72, 122) 64%);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.28, rgb(69, 132, 180)),
+        color-stop(0.64, rgb(31, 71, 120))
+    );
 
     .sun {
         z-index: 1;
@@ -54,50 +61,20 @@ body {
         transition: left 0.3s linear;
     }
 
-    .tree {
-        z-index: 3;
-        position: absolute;
-        width: 300vw;
-        transition: left 0.3s linear;
-
-        img {
-            z-index: inherit;
-            position: absolute;
-        }
-    }
-
-    .hills {
-        height: 100vh;
-        width: 100vw;
-        top: 55vh;
-        position: absolute;
-        z-index: 4;
-        background: repeat-x url(../images/hills.png);
-        background-size: 125%;
-        background-position-x: 0;
-        transition: background-position-x 0.3s linear;
-    }
-
     .cloud {
-        z-index: 1;
+        z-index: 2;
         height: 100vh;
 
         #viewport {
+            z-index: 2;
             position: absolute;
             overflow: hidden;
             width: 100%;
             height: inherit;
             perspective: 1000px;
-            background-image: linear-gradient(bottom, rgb(69, 132, 181) 28%, rgb(31, 72, 122) 64%);
-            background-image: -webkit-gradient(
-                linear,
-                left bottom,
-                left top,
-                color-stop(0.28, rgb(69, 132, 180)),
-                color-stop(0.64, rgb(31, 71, 120))
-            );
 
             .world {
+                z-index: 2;
                 position: absolute;
                 height: 50%;
                 width: 100%;
@@ -107,6 +84,7 @@ body {
                 }
 
                 .cloudBase {
+                    z-index: 2;
                     position: absolute;
                     height: 20px;
                     width: 20px;
@@ -125,5 +103,29 @@ body {
                 }
             }
         }
+    }
+
+    .tree {
+        z-index: 3;
+        position: absolute;
+        width: 300vw;
+        transition: left 0.3s linear;
+
+        img {
+            z-index: inherit;
+            position: absolute;
+        }
+    }
+
+    .hills {
+        z-index: 4;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 55vh;
+        background: repeat-x url(../images/hills.png);
+        background-size: 125%;
+        background-position-x: 0;
+        transition: background-position-x 0.3s linear;
     }
 }

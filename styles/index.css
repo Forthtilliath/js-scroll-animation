@@ -38,6 +38,8 @@ body {
   overflow: hidden;
   width: 100%;
   height: 100vh;
+  background-image: linear-gradient(bottom, #4584b5 28%, #1f487a 64%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.28, #4584b4), color-stop(0.64, #1f4778));
 }
 .view .sun {
   z-index: 1;
@@ -48,41 +50,20 @@ body {
   height: 5vh;
   transition: left 0.3s linear;
 }
-.view .tree {
-  z-index: 3;
-  position: absolute;
-  width: 300vw;
-  transition: left 0.3s linear;
-}
-.view .tree img {
-  z-index: inherit;
-  position: absolute;
-}
-.view .hills {
-  height: 100vh;
-  width: 100vw;
-  top: 55vh;
-  position: absolute;
-  z-index: 4;
-  background: repeat-x url(../images/hills.png);
-  background-size: 125%;
-  background-position-x: 0;
-  transition: background-position-x 0.3s linear;
-}
 .view .cloud {
-  z-index: 1;
+  z-index: 2;
   height: 100vh;
 }
 .view .cloud #viewport {
+  z-index: 2;
   position: absolute;
   overflow: hidden;
   width: 100%;
   height: inherit;
   perspective: 1000px;
-  background-image: linear-gradient(bottom, #4584b5 28%, #1f487a 64%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.28, #4584b4), color-stop(0.64, #1f4778));
 }
 .view .cloud #viewport .world {
+  z-index: 2;
   position: absolute;
   height: 50%;
   width: 100%;
@@ -92,6 +73,7 @@ body {
   transform-style: preserve-3d;
 }
 .view .cloud #viewport .world .cloudBase {
+  z-index: 2;
   position: absolute;
   height: 20px;
   width: 20px;
@@ -106,6 +88,27 @@ body {
   margin-top: -128px;
   margin-left: -128px;
   transition: opacity 0.5s ease-out;
+}
+.view .tree {
+  z-index: 3;
+  position: absolute;
+  width: 300vw;
+  transition: left 0.3s linear;
+}
+.view .tree img {
+  z-index: inherit;
+  position: absolute;
+}
+.view .hills {
+  z-index: 4;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 55vh;
+  background: repeat-x url(../images/hills.png);
+  background-size: 125%;
+  background-position-x: 0;
+  transition: background-position-x 0.3s linear;
 }
 
 /*# sourceMappingURL=index.css.map */
