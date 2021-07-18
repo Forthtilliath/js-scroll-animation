@@ -69,15 +69,15 @@ body {
         z-index: 1;
         position: absolute;
         background: no-repeat url(../images/sun.png);
-        left: 10%;
-        top: 20%;
+        // left: 10%;
+        // top: 20%;
         background-size: 5vh;
         width: 5vh;
         height: 5vh;
     }
 
     .tree {
-        z-index: 2;
+        z-index: 3;
         position: absolute;
         bottom: 30vh;
 
@@ -94,7 +94,7 @@ body {
         width: 100vw;
         top: 55vh;
         position: absolute;
-        z-index: 3;
+        z-index: 4;
         background: repeat-x url(../images/hill/1.png);
         background-size: 125%;
         background-position-x: 0;
@@ -102,10 +102,10 @@ body {
 
     .cloud {
         z-index: 1;
-        height: 70vh;
+        height: 100vh;
+        // margin-top: 25vh;
 
         #viewport {
-            z-index: inherit;
             position: absolute;
             overflow: hidden;
             width: 100%;
@@ -119,41 +119,40 @@ body {
                 color-stop(0.28, rgb(69, 132, 180)),
                 color-stop(0.64, rgb(31, 71, 120))
             );
-        }
 
-        #world {
-            z-index: inherit;
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            transform-style: preserve-3d;
-            // background: rgba( 255, 0, 0, .2 );
-            div {
+            .world {
+                position: absolute;
+                height: 50%;
+                width: 100%;
                 transform-style: preserve-3d;
+                // background: rgba( 255, 0, 0, .2 );
+                div {
+                    transform-style: preserve-3d;
+                }
+
+                .cloudBase {
+                    position: absolute;
+                    height: 20px;
+                    width: 20px;
+                    // top: 256px;
+                    // left: 256px;
+                    margin-top: -10px;
+                    margin-left: -10px;
+                    // background: rgba( 255, 0, 255, .5 );
+
+                    .cloudLayer {
+                        position: absolute;
+                        height: 256px;
+                        width: 256px;
+                        // top: 50%;
+                        // left: 50%;
+                        margin-top: -128px;
+                        margin-left: -128px;
+                        // background: rgba( 0, 255, 255, .1 );
+                        transition: opacity 0.5s ease-out;
+                    }
+                }
             }
-        }
-
-        .cloudBase {
-            position: absolute;
-            height: 20px;
-            width: 20px;
-            // top: 256px;
-            // left: 256px;
-            margin-top: -10px;
-            margin-left: -10px;
-            // background: rgba( 255, 0, 255, .5 );
-        }
-
-        .cloudLayer {
-            position: absolute;
-            height: 256px;
-            width: 256px;
-            // top: 50%;
-            // left: 50%;
-            margin-top: -128px;
-            margin-left: -128px;
-            // background: rgba( 0, 255, 255, .1 );
-            transition: opacity 0.5s ease-out;
         }
     }
 }

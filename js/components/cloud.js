@@ -10,15 +10,15 @@ export default class Cloud {
         this.layers = [];
         this.nbClouds = 15;
 
-        this.world = document.getElementById('world');
+        this.world = document.querySelector('.world');
+        this.glass = document.querySelector('.glass');
         this.viewport = document.getElementById('viewport');
-
-        this.generate();
     }
 
     generate() {
         this.objects = [];
         this.layers = [];
+
         if (this.world.hasChildNodes()) {
             while (this.world.childNodes.length >= 1) {
                 this.world.removeChild(world.firstChild);
@@ -33,13 +33,12 @@ export default class Cloud {
     createCloud() {
         let div = document.createElement('div');
         div.className = 'cloudBase';
-        const rect = this.world.getBoundingClientRect();
-        // console.log(rect);
+        const rect = this.glass.getBoundingClientRect();
+
         let random_x = Math.random() * rect.width;
-        let random_y = Math.random() * rect.height;
+        let random_y = Math.random() * rect.height * 0.5 + rect.top;
         let random_z = 256 - Math.random() * 50;
-        let random_s = 0.3;
-        let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px) scale(${random_s})`;
+        let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px)`;
         div.style.transform = t;
         this.world.appendChild(div);
 
@@ -48,12 +47,15 @@ export default class Cloud {
 
             cloud.src = 'http://www.clicktorelease.com/code/css3dclouds/cloud.png';
             cloud.className = 'cloudLayer';
+            cloud.alt = 'cloud';
             cloud.style.opacity = 0.8;
             let random_x = 256 - Math.random() * 512;
             let random_y = 256 - Math.random() * 200;
             let random_z = 100 - Math.random() * 200;
             let random_a = Math.random() * 360;
-            let random_s = 0.25 + Math.random();
+            // let random_s = 0.25 + Math.random();
+            let random_s = 0.5 - Math.random();
+            // let random_s = 0.3;
             random_x *= 0.2;
             random_y *= 0.2;
             cloud.data = {
@@ -64,8 +66,8 @@ export default class Cloud {
                 s: random_s,
                 speed: 0.1 * Math.random(),
             };
-            // let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px) rotateZ(${random_a}deg) scale(${random_s})`;
-            let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px) rotateZ(${random_a}deg)`;
+            let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px) rotateZ(${random_a}deg) scale(${random_s})`;
+            // let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px) rotateZ(${random_a}deg)`;
             cloud.style.transform = t;
             div.appendChild(cloud);
             this.layers.push(cloud);
