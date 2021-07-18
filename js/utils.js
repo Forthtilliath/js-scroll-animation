@@ -7,4 +7,3 @@ export const wait = (fn, timeToWait = .5) => {
         lastScroll = time;
     }
 };
-

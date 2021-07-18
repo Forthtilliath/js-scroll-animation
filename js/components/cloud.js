@@ -1,17 +1,17 @@
+// Code de base trouvé ici
 // https://www.clicktorelease.com/blog/how-to-make-clouds-with-css-3d/
 
 export default class Cloud {
-    constructor() {
+    constructor({ number = 1 }) {
         /**
          * objects is an array of cloud bases
          * layers is an array of cloud layers
          **/
         this.objects = [];
         this.layers = [];
-        this.nbClouds = 50;
+        this.nbClouds = number;
         this.ratio = 1;
 
-        // TODO Save initial position
         this.initialTransforms = [];
 
         this.world = document.querySelector('.world');
@@ -20,8 +20,6 @@ export default class Cloud {
     }
 
     generate(ratio) {
-        // this.objects = [];
-        // this.layers = [];
         this.ratio = ratio;
 
         if (this.world.hasChildNodes()) {
@@ -73,7 +71,7 @@ export default class Cloud {
         for (let j = 0; j < 5 + Math.round(Math.random() * 10); j++) {
             let cloud = document.createElement('img');
 
-            cloud.src = 'http://www.clicktorelease.com/code/css3dclouds/cloud.png';
+            cloud.src = './images/cloud.png';
             cloud.className = 'cloudLayer';
             cloud.alt = 'cloud';
             cloud.style.opacity = 0.8;
@@ -81,9 +79,7 @@ export default class Cloud {
             let random_y = 256 - Math.random() * 200;
             let random_z = 100 - Math.random() * 200;
             let random_a = Math.random() * 360;
-            // let random_s = 0.25 + Math.random();
             let random_s = 0.5 - Math.random();
-            // let random_s = 0.3;
             random_x *= 0.2;
             random_y *= 0.2;
             cloud.data = {
@@ -95,7 +91,6 @@ export default class Cloud {
                 speed: 0.1 * Math.random(),
             };
             let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px) rotateZ(${random_a}deg) scale(${random_s})`;
-            // let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px) rotateZ(${random_a}deg)`;
             cloud.style.transform = t;
             div.appendChild(cloud);
             this.layers.push(cloud);

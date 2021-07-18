@@ -9,9 +9,6 @@ export default class Scroll {
 
         this.currentPosition = 0;
 
-        this.clouds = [];
-        this.trees = [];
-
         this.cloud = cloud;
         this.hills = hills;
         this.sun = sun;
@@ -26,7 +23,6 @@ export default class Scroll {
     }
 
     addEvents() {
-        // window.addEventListener('wheel', (e) => wait(() => this.move(e), 0.5));
         window.addEventListener('wheel', (e) => this.move(e));
     }
 
