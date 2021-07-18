@@ -2,7 +2,7 @@ export default class Scroll {
     constructor({ cloud, tree, sun, hills }) {
         this.addEvents();
 
-        this.speedClouds = 1 - Math.random() * 2; // -1 à 1
+        this.speedClouds = 0.1 - Math.random() * 0.2; // -1 à 1
         this.speedTrees = 1;
         this.speedHills = -0.5;
         this.speedSun = 0.03;
@@ -18,7 +18,10 @@ export default class Scroll {
         this.tree = tree;
 
         // Récupère les positions initiales des éléments car on modifiera leur position à part de ca et de currentPosition
-        this.initialPositionSun = { left: Number(sun.style.left.split('px')[0]), top: Number(sun.style.top.split('px')[0]) };
+        this.initialPositionSun = {
+            left: Number(sun.style.left.split('px')[0]),
+            top: Number(sun.style.top.split('px')[0]),
+        };
         this.initialPositionHills = { left: Number(hills.style.backgroundPositionX.split('px')[0]) };
 
         console.log(this.initialPositionHills.left);
@@ -38,25 +41,25 @@ export default class Scroll {
 
     move(e) {
         this.currentPosition += e.deltaY;
-        // this.moveClouds();
+        this.moveClouds();
         this.moveSun();
         this.moveHills();
-
-        console.log('currentPosition', this.currentPosition);
     }
 
     moveClouds() {
         // console.log('moveclouds', this.clouds);
-        const regExec = /(\w+)\(([^)]*)\)/g;
-        this.clouds.forEach((cloud) => {
-            let arrTransform = [];
-            let m;
-            while ((m = regExec.exec(cloud.style.transform))) {
-                arrTransform.push({ name: m[1], value: m[2] });
-            }
-            // let arrTransform = cloud.style.transform.split(' ');
-            // console.log(arrTransform);
-        });
+        // const regExec = /(\w+)\(([^)]*)\)/g;
+        // this.clouds.forEach((cloud) => {
+        //     let arrTransform = [];
+        //     let m;
+        //     while ((m = regExec.exec(cloud.style.transform))) {
+        //         arrTransform.push({ name: m[1], value: m[2] });
+        //     }
+        //     // let arrTransform = cloud.style.transform.split(' ');
+        //     // console.log(arrTransform);
+        // });
+
+        this.cloud.move(this.currentPosition * this.speedClouds);
     }
 
     moveSun() {
@@ -65,7 +68,7 @@ export default class Scroll {
     }
 
     moveHills() {
-        console.log('move',this.initialPositionHills.left + this.currentPosition * this.speedHills + 'px');
-        this.hills.style.backgroundPositionX = this.initialPositionHills.left + this.currentPosition * this.speedHills + 'px';
+        this.hills.style.backgroundPositionX =
+            this.initialPositionHills.left + this.currentPosition * this.speedHills + 'px';
     }
 }

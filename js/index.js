@@ -3,7 +3,7 @@ import Scroll from './scroll.js';
 import Cloud from './components/cloud.js';
 import Tree from './components/tree.js';
 
-// import { wait } from './utils.js';
+import { wait } from './utils.js';
 
 // TODO Si y'a le temps
 // const unCurseur = new Cursor({element:document.querySelector('glass')});
@@ -40,19 +40,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
         let baseHeight = 500;
         let ratio = rect.height / baseHeight;
 
-        cloud.generate();
+        cloud.generate(ratio);
         // Important ! A faire après le generate
-        const clouds = document.querySelectorAll('.cloudBase');
+        // const clouds = document.querySelectorAll('.cloudBase');
 
-        clouds.forEach((unNuage) => {
-            let arrTransform = unNuage.style.transform.split(' ');
-            // Supprime scale si déjà ajouté
-            if (arrTransform.length > 3) arrTransform.pop();
-            let transform = arrTransform.join(' ');
-            unNuage.style.transform = transform + ` scale(${ratio})`;
-        });
+        // clouds.forEach((unNuage) => {
+        //     let arrTransform = unNuage.style.transform.split(' ');
+        //     // Supprime scale si déjà ajouté
+        //     if (arrTransform.length > 3) arrTransform.pop();
+        //     let transform = arrTransform.join(' ');
+        //     unNuage.style.transform = transform + ` scale(${ratio})`;
+        // });
     }
     positioningElementsBy(mainElement);
+    // window.addEventListener('resize', () => wait(() => positioningElementsBy(mainElement), 0.5));
     window.addEventListener('resize', () => positioningElementsBy(mainElement));
 
     const scroll = new Scroll({ cloud, tree, sun, hills });

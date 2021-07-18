@@ -35,12 +35,12 @@ body {
     z-index: 100;
     display: flex;
     flex-direction: column;
-    animation: all 1s ease-in;
+    // animation: all 1s ease-in;
 
     .glass-bg {
         flex-grow: 1;
         background-color: $color-contour;
-        animation: all 1s ease-in;
+        // animation: all 1s ease-in;
     }
     .glass-subcontainer {
         display: flex;
@@ -48,7 +48,7 @@ body {
         .glass {
             font-size: 0;
             width: 80%;
-            animation: all 1s ease-in;
+            // animation: all 1s ease-in;
 
             // path {
             //     // color:transparent; // TODO Remove later
@@ -74,7 +74,8 @@ body {
         background-size: 5vh;
         width: 5vh;
         height: 5vh;
-        transition: all .3s linear;
+        // transition: all .3s linear;
+        transition: left 0.3s linear;
     }
 
     .tree {
@@ -100,7 +101,7 @@ body {
         background: repeat-x url(../images/hill/1.png);
         background-size: 125%;
         background-position-x: 0;
-        transition: all .3s linear;
+        transition: background-position-x 0.3s linear;
     }
 
     .cloud {
@@ -142,6 +143,7 @@ body {
                     margin-top: -10px;
                     margin-left: -10px;
                     // background: rgba( 255, 0, 255, .5 );
+                        transition: all .3s linear;
 
                     .cloudLayer {
                         position: absolute;

@@ -9,6 +9,7 @@ export default class Cloud {
         this.objects = [];
         this.layers = [];
         this.nbClouds = 15;
+        this.ratio = 1;
 
         // TODO Save initial position
         this.initialTransforms = [];
@@ -18,9 +19,10 @@ export default class Cloud {
         this.viewport = document.getElementById('viewport');
     }
 
-    generate() {
-        this.objects = [];
-        this.layers = [];
+    generate(ratio) {
+        // this.objects = [];
+        // this.layers = [];
+        this.ratio = ratio;
 
         if (this.world.hasChildNodes()) {
             while (this.world.childNodes.length >= 1) {
@@ -64,7 +66,7 @@ export default class Cloud {
         let random_x = Math.random() * rect.width + rect.left;
         let random_y = Math.random() * rect.height * 0.5 + rect.top;
         let random_z = 256 - Math.random() * 50;
-        let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px)`;
+        let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px) scale(${this.ratio})`;
         div.style.transform = t;
         this.world.appendChild(div);
 
@@ -100,5 +102,19 @@ export default class Cloud {
         }
 
         return div;
+    }
+
+    move(x) {
+        this.initialTransforms.forEach((cloud, index) => {
+            // Récupère la règle pour le translateX
+            let indexTranslateX = cloud.findIndex((rule) => rule.name === 'translateX');
+            // Calcul le nouveau montant
+            let newTranslateX = Math.floor(Number(cloud[indexTranslateX].value.split('px')[0]) + x) + 'px';
+            // Copie le transform pour mettre la value modifiée
+            let newTransform = [ ...cloud ];
+            newTransform[indexTranslateX] = { name: 'translateX', value: newTranslateX };
+            // Mise à jour de la règle transform
+            this.objects[index].style.transform = newTransform.map((rule) => rule.name + '(' + rule.value + ')').join(' ');
+        });
     }
 }
