@@ -69,6 +69,7 @@ body {
   background: repeat-x url(../images/hill/1.png);
   background-size: 125%;
   background-position-x: 0;
+  transition: all 0.3s linear;
 }
 .view .cloud {
   z-index: 1;

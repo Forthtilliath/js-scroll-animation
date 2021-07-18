@@ -4,7 +4,7 @@ export default class Scroll {
 
         this.speedClouds = 1 - Math.random() * 2; // -1 à 1
         this.speedTrees = 1;
-        this.speedHills = 1;
+        this.speedHills = -0.5;
         this.speedSun = 0.03;
 
         this.currentPosition = 0;
@@ -17,7 +17,11 @@ export default class Scroll {
         this.sun = sun;
         this.tree = tree;
 
-        this.initialPositionSun = { left: Number(sun.style.left.split('px')[0]), top: sun.style.top };
+        // Récupère les positions initiales des éléments car on modifiera leur position à part de ca et de currentPosition
+        this.initialPositionSun = { left: Number(sun.style.left.split('px')[0]), top: Number(sun.style.top.split('px')[0]) };
+        this.initialPositionHills = { left: Number(hills.style.backgroundPositionX.split('px')[0]) };
+
+        console.log(this.initialPositionHills.left);
 
         this.setupElements();
     }
@@ -36,6 +40,7 @@ export default class Scroll {
         this.currentPosition += e.deltaY;
         // this.moveClouds();
         this.moveSun();
+        this.moveHills();
 
         console.log('currentPosition', this.currentPosition);
     }
@@ -57,5 +62,10 @@ export default class Scroll {
     moveSun() {
         this.sun.style.left = this.initialPositionSun.left + this.currentPosition * this.speedSun + 'px';
         // TODO Faire que le soleil monte dans le ciel puis redescende
+    }
+
+    moveHills() {
+        console.log('move',this.initialPositionHills.left + this.currentPosition * this.speedHills + 'px');
+        this.hills.style.backgroundPositionX = this.initialPositionHills.left + this.currentPosition * this.speedHills + 'px';
     }
 }
