@@ -10,6 +10,9 @@ export default class Cloud {
         this.layers = [];
         this.nbClouds = 15;
 
+        // TODO Save initial position
+        this.initialTransforms = [];
+
         this.world = document.querySelector('.world');
         this.glass = document.querySelector('.glass');
         this.viewport = document.getElementById('viewport');
@@ -28,6 +31,29 @@ export default class Cloud {
         for (let j = 0; j < this.nbClouds; j++) {
             this.objects.push(this.createCloud());
         }
+
+        this.initialTransforms = this.getTransforms();
+    }
+
+    /**
+     * Retourne un tableau contenu l'ensemble des transforms des nuages
+     * @returns {[{ name: String, value: String }]}
+     **/
+    getTransforms() {
+        const regExec = /(\w+)\(([^)]*)\)/g;
+        let arrTransforms = [];
+
+        this.objects.forEach((cloud) => {
+            let m;
+            let arrTransform = [];
+
+            while ((m = regExec.exec(cloud.style.transform))) {
+                arrTransform.push({ name: m[1], value: m[2] });
+            }
+            arrTransforms.push(arrTransform);
+        });
+
+        return arrTransforms;
     }
 
     createCloud() {

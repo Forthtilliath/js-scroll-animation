@@ -1,6 +1,6 @@
 $nbViewsLoaded: 3;
 $color-contour: rgb(0, 0, 0);
-$color-contour: transparent; // TODO Remove later
+// $color-contour: transparent; // TODO Remove later
 
 *,
 :before,
@@ -50,11 +50,11 @@ body {
             width: 80%;
             animation: all 1s ease-in;
 
-            path {
-                // color:transparent; // TODO Remove later
-            }
-            .sun_cover {
-            }
+            // path {
+            //     // color:transparent; // TODO Remove later
+            // }
+            // .sun_cover {
+            // }
         }
     }
 }
@@ -74,12 +74,14 @@ body {
         background-size: 5vh;
         width: 5vh;
         height: 5vh;
+        transition: all .3s linear;
     }
 
     .tree {
         z-index: 3;
         position: absolute;
-        bottom: 30vh;
+        // bottom: 30vh;
+        width: 300vw;
 
         img {
             z-index: inherit;

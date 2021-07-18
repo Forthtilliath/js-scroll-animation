@@ -8,12 +8,18 @@ import Tree from './components/tree.js';
 // TODO Si y'a le temps
 // const unCurseur = new Cursor({element:document.querySelector('glass')});
 window.addEventListener('DOMContentLoaded', (event) => {
+    // Element qui sert de référence à tous les autres éléments !
+    const mainElement = document.querySelector('.glass');
+
+    // Elements déjà dans le html
     const sun = document.querySelector('.sun');
     const hills = document.querySelector('.hills');
+
+    // Elements générés par JS
     const cloud = new Cloud();
-    const tree = new Tree();
+    const tree = new Tree({ nbTrees: 5 });
     const tree_ = document.querySelector('.tree');
-    const trees = document.querySelector('.tree img');
+    const trees = document.querySelectorAll('.tree img'); // TODO QSA
 
     // Placement des éléments en fonction du glass
     function positioningElementsBy(element) {
@@ -26,7 +32,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         tree_.style.bottom = rect.bottom - rect.height * 0.82 + 'px';
         tree_.style.left = rect.left + rect.width * 0.025 + 'px';
-        trees.style.height = rect.height * 0.5 + 'px';
+
+        trees.forEach((unArbre) => {
+            unArbre.style.height = rect.height * 0.5 + 'px';
+        });
 
         let baseHeight = 500;
         let ratio = rect.height / baseHeight;
@@ -35,16 +44,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // Important ! A faire après le generate
         const clouds = document.querySelectorAll('.cloudBase');
 
-        clouds.forEach((item) => {
-            let arrTransform = item.style.transform.split(' ');
+        clouds.forEach((unNuage) => {
+            let arrTransform = unNuage.style.transform.split(' ');
             // Supprime scale si déjà ajouté
             if (arrTransform.length > 3) arrTransform.pop();
             let transform = arrTransform.join(' ');
-            item.style.transform = transform + ` scale(${ratio})`;
+            unNuage.style.transform = transform + ` scale(${ratio})`;
         });
     }
-    positioningElementsBy(document.querySelector('.glass'));
-    window.addEventListener('resize', () => positioningElementsBy(document.querySelector('.glass')));
+    positioningElementsBy(mainElement);
+    window.addEventListener('resize', () => positioningElementsBy(mainElement));
 
-    const scroll = new Scroll();
+    const scroll = new Scroll({ cloud, tree, sun, hills });
 });
