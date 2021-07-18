@@ -30,13 +30,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         sun.style.top = rect.top + rect.height * 0.05 + 'px';
         sun.style.left = rect.left + rect.width * 0.025 + 'px';
 
-        // tree_.style.bottom = rect.bottom - rect.height * 0.82 + 'px';
-        // tree_.style.left = rect.left + rect.width * 0.025 + 'px';
-
         trees.forEach((unArbre) => {
-            // unArbre.style.height = rect.height * 0.5 + 'px';
-            // tree_.style.bottom = rect.bottom - rect.height * 0.82 + 'px';
-            // tree_.style.left = rect.left + rect.width * 0.025 + 'px';
 
             Object.assign(unArbre.style, {
                 height: rect.height * 0.5 + 'px',
@@ -45,24 +39,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 // left: rect.left + rect.width * 0.025 + 'px',
                 left: rect.width * (2 - Math.random() * 4) + 'px',
             });
-
-            console.log(rect.width * (2 - Math.random() * 4) + 'px');
         });
 
         let baseHeight = 500;
         let ratio = rect.height / baseHeight;
 
         cloud.generate(ratio);
-        // Important ! A faire après le generate
-        // const clouds = document.querySelectorAll('.cloudBase');
-
-        // clouds.forEach((unNuage) => {
-        //     let arrTransform = unNuage.style.transform.split(' ');
-        //     // Supprime scale si déjà ajouté
-        //     if (arrTransform.length > 3) arrTransform.pop();
-        //     let transform = arrTransform.join(' ');
-        //     unNuage.style.transform = transform + ` scale(${ratio})`;
-        // });
     }
     positioningElementsBy(mainElement);
     // window.addEventListener('resize', () => wait(() => positioningElementsBy(mainElement), 0.5));

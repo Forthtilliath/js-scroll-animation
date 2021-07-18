@@ -52,6 +52,7 @@ body {
   z-index: 3;
   position: absolute;
   width: 300vw;
+  transition: left 0.3s linear;
 }
 .view .tree img {
   z-index: inherit;

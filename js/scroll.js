@@ -3,7 +3,7 @@ export default class Scroll {
         this.addEvents();
 
         this.speedClouds = 0.1 - Math.random() * 0.2; // -1 à 1
-        this.speedTrees = 1;
+        this.speedTrees = -0.1;
         this.speedHills = -0.5;
         this.speedSun = 0.03;
 
@@ -30,7 +30,7 @@ export default class Scroll {
     }
 
     setupElements() {
-        this.clouds = document.querySelectorAll('.cloudBase');
+        // this.clouds = document.querySelectorAll('.cloudBase');
         this.trees = document.querySelector('.tree');
     }
 
@@ -44,6 +44,7 @@ export default class Scroll {
         this.moveClouds();
         this.moveSun();
         this.moveHills();
+        this.moveTrees();
     }
 
     moveClouds() {
@@ -70,5 +71,9 @@ export default class Scroll {
     moveHills() {
         this.hills.style.backgroundPositionX =
             this.initialPositionHills.left + this.currentPosition * this.speedHills + 'px';
+    }
+
+    moveTrees() {
+        this.tree.move(this.currentPosition * this.speedTrees);;
     }
 }

@@ -83,6 +83,7 @@ body {
         position: absolute;
         // bottom: 30vh;
         width: 300vw;
+        transition: left 0.3s linear;
 
         img {
             z-index: inherit;

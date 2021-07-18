@@ -46,4 +46,15 @@ export default class Tree {
         img.alt = 'tree';
         this.container.appendChild(img);
     }
+
+    move(x) {
+        // this.elements.forEach((tree) => {
+        //     console.log(tree);
+        //     // console.log('before', tree.style.left, x);
+        //     tree.style.left = Number(tree.style.left.split('px')[0]) + x + 'px';
+        //     // console.log('after', tree.style.left, x);
+        // });
+        // let newLeft = Number(this.container.style.left.split('px')[0]) + x;
+        this.container.style.left = x + 'px';
+    }
 }
