@@ -64,7 +64,7 @@ body {
   top: 55vh;
   position: absolute;
   z-index: 4;
-  background: repeat-x url(../images/hill/1.png);
+  background: repeat-x url(../images/hills.png);
   background-size: 125%;
   background-position-x: 0;
   transition: background-position-x 0.3s linear;
