@@ -30,14 +30,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         let baseHeight = 500;
         let ratio = rect.height / baseHeight;
-        const world = document.querySelector('.world');
-        // console.log(document.querySelector('.world').length, world.style);
-        // world.style.top = rect.top - rect.height * 0.1;
-        // world.style.height = rect.height * 0.4 - rect.height * 0.1;
-        // console.log(world, world.style);
-        // console.log('top', world.style.top, 'height', world.style.height);
-
-        // cloud.setWorldStyle({ top: rect.top - rect.height * 0.1, height: rect.height * 0.4 - rect.height * 0.1 });
 
         cloud.generate();
         // Important ! A faire après le generate

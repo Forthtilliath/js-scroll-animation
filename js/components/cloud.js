@@ -21,7 +21,7 @@ export default class Cloud {
 
         if (this.world.hasChildNodes()) {
             while (this.world.childNodes.length >= 1) {
-                this.world.removeChild(world.firstChild);
+                this.world.removeChild(this.world.firstChild);
             }
         }
 
@@ -35,7 +35,7 @@ export default class Cloud {
         div.className = 'cloudBase';
         const rect = this.glass.getBoundingClientRect();
 
-        let random_x = Math.random() * rect.width;
+        let random_x = Math.random() * rect.width + rect.left;
         let random_y = Math.random() * rect.height * 0.5 + rect.top;
         let random_z = 256 - Math.random() * 50;
         let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px)`;
