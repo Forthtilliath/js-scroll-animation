@@ -55,7 +55,7 @@ body {
 }
 .view .tree img {
   z-index: inherit;
-  height: 50vh;
+  position: absolute;
 }
 .view .hills {
   height: 100vh;

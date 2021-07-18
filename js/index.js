@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     // Elements générés par JS
     const cloud = new Cloud();
-    const tree = new Tree({ nbTrees: 5 });
+    const tree = new Tree({ nbTrees: 10 });
     const tree_ = document.querySelector('.tree');
     const trees = document.querySelectorAll('.tree img'); // TODO QSA
 
@@ -30,11 +30,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
         sun.style.top = rect.top + rect.height * 0.05 + 'px';
         sun.style.left = rect.left + rect.width * 0.025 + 'px';
 
-        tree_.style.bottom = rect.bottom - rect.height * 0.82 + 'px';
-        tree_.style.left = rect.left + rect.width * 0.025 + 'px';
+        // tree_.style.bottom = rect.bottom - rect.height * 0.82 + 'px';
+        // tree_.style.left = rect.left + rect.width * 0.025 + 'px';
 
         trees.forEach((unArbre) => {
-            unArbre.style.height = rect.height * 0.5 + 'px';
+            // unArbre.style.height = rect.height * 0.5 + 'px';
+            // tree_.style.bottom = rect.bottom - rect.height * 0.82 + 'px';
+            // tree_.style.left = rect.left + rect.width * 0.025 + 'px';
+
+            Object.assign(unArbre.style, {
+                height: rect.height * 0.5 + 'px',
+                // bottom: rect.bottom - rect.height * 0.82 + 'px',
+                bottom: -rect.bottom + rect.height * 0.25 + 'px',
+                // left: rect.left + rect.width * 0.025 + 'px',
+                left: rect.width * (2 - Math.random() * 4) + 'px',
+            });
+
+            console.log(rect.width * (2 - Math.random() * 4) + 'px');
         });
 
         let baseHeight = 500;

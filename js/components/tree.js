@@ -1,4 +1,4 @@
-const trees = [...Array(5).keys()].map((x) => `/images/tree/${x}.png`);
+const trees = [...Array(6).keys()].map((x) => `/images/tree/${x}.png`);
 
 /**
  * Nouvel arbre =>
