@@ -23,15 +23,6 @@ export default class Scroll {
             top: Number(sun.style.top.split('px')[0]),
         };
         this.initialPositionHills = { left: Number(hills.style.backgroundPositionX.split('px')[0]) };
-
-        console.log(this.initialPositionHills.left);
-
-        this.setupElements();
-    }
-
-    setupElements() {
-        // this.clouds = document.querySelectorAll('.cloudBase');
-        this.trees = document.querySelector('.tree');
     }
 
     addEvents() {
@@ -48,18 +39,6 @@ export default class Scroll {
     }
 
     moveClouds() {
-        // console.log('moveclouds', this.clouds);
-        // const regExec = /(\w+)\(([^)]*)\)/g;
-        // this.clouds.forEach((cloud) => {
-        //     let arrTransform = [];
-        //     let m;
-        //     while ((m = regExec.exec(cloud.style.transform))) {
-        //         arrTransform.push({ name: m[1], value: m[2] });
-        //     }
-        //     // let arrTransform = cloud.style.transform.split(' ');
-        //     // console.log(arrTransform);
-        // });
-
         this.cloud.move(this.currentPosition * this.speedClouds);
     }
 

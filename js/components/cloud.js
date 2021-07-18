@@ -8,7 +8,7 @@ export default class Cloud {
          **/
         this.objects = [];
         this.layers = [];
-        this.nbClouds = 15;
+        this.nbClouds = 50;
         this.ratio = 1;
 
         // TODO Save initial position
@@ -63,7 +63,7 @@ export default class Cloud {
         div.className = 'cloudBase';
         const rect = this.glass.getBoundingClientRect();
 
-        let random_x = Math.random() * rect.width + rect.left;
+        let random_x = Math.random() * rect.width + rect.left - 1000 + Math.random() * 3000;
         let random_y = Math.random() * rect.height * 0.5 + rect.top;
         let random_z = 256 - Math.random() * 50;
         let t = `translateX(${random_x}px) translateY(${random_y}px) translateZ(${random_z}px) scale(${this.ratio})`;
