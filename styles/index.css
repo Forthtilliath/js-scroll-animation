@@ -31,6 +31,10 @@ body {
 .glass-container .glass-subcontainer .glass {
   font-size: 0;
   width: 80%;
+  transition: background-color 0.3s ease-in;
+}
+.glass-container .glass-subcontainer .glass.hidden {
+  background-color: black;
 }
 
 .view {
@@ -48,7 +52,7 @@ body {
   background-size: 5vh;
   width: 5vh;
   height: 5vh;
-  transition: left 0.3s linear;
+  transition: all 0.3s linear;
 }
 .view .cloud {
   z-index: 2;

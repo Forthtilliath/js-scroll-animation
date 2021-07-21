@@ -15,10 +15,11 @@ export default class Scroll {
         this.tree = tree;
 
         // Récupère les positions initiales des éléments car on modifiera leur position à part de ca et de currentPosition
-        this.initialPositionSun = {
-            left: Number(sun.style.left.split('px')[0]),
-            top: Number(sun.style.top.split('px')[0]),
-        };
+        // this.initialPositionSun = {
+        //     left: Number(sun.style.left.split('px')[0]),
+        //     top: Number(sun.style.top.split('px')[0]),
+        // };
+        this.initialPositionSun = sun.getInitialPosition();
         this.initialPositionHills = { left: Number(hills.style.backgroundPositionX.split('px')[0]) };
     }
 
@@ -39,7 +40,8 @@ export default class Scroll {
     }
 
     moveSun() {
-        this.sun.style.left = this.initialPositionSun.left + this.currentPosition * this.speedSun + 'px';
+        // this.sun.style.left = this.initialPositionSun.left + this.currentPosition * this.speedSun + 'px';
+        this.sun.move(this.currentPosition * this.speedSun);
         // TODO Faire que le soleil monte dans le ciel puis redescende
     }
 
