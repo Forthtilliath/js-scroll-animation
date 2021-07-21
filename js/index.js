@@ -50,8 +50,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         // Affiche la scène
         mainElement.classList.remove('hidden');
     }
-    
-    // positioningElementsBy(mainElement);
+
+    positioningElementsBy(mainElement);
     window.addEventListener('resize', () => positioningElementsBy(mainElement));
 
     new Scroll({ cloud, tree, sun, hills });
